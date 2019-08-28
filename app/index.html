@@ -16,6 +16,8 @@
       rel="stylesheet"
     />
 
+    <meta name="theme-color" content="#3c6e8b" />
+
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css" />
     <!-- endbuild -->
@@ -23,7 +25,8 @@
   <body>
     <main id="app" class="app" data-state="home">
       <div id="view-home" class="view view--home">
-        <h1 class="view__title">Metropolys<br />Setup randomizer</h1>
+        <h1 class="view__logo">Metropolys</h1>
+        <h2 class="view__title">Setup randomizer</h2>
 
         <button class="button button--action" data-action="start">
           Start
@@ -52,74 +55,76 @@
         </h2>
 
         <div class="map">
+          <div class="map__background"></div>
+
           <div class="map__sectors">
-            <div class="map__sector map__sector--north"></div>
-            <div class="map__sector map__sector--east"></div>
-            <div class="map__sector map__sector--south"></div>
-            <div class="map__sector map__sector--west"></div>
+            <div class="map__sector map__sector--north" data-zone="north"></div>
+            <div class="map__sector map__sector--east" data-zone="east"></div>
+            <div class="map__sector map__sector--south" data-zone="south"></div>
+            <div class="map__sector map__sector--west" data-zone="west"></div>
           </div>
 
           <div class="map__points">
             <!-- North -->
-            <div class="map__point map__point-n1"></div>
-            <div class="map__point map__point-n2"></div>
-            <div class="map__point map__point-n3"></div>
-            <div class="map__point map__point-n4"></div>
-            <div class="map__point map__point-n5"></div>
-            <div class="map__point map__point-n6"></div>
-            <div class="map__point map__point-n7"></div>
-            <div class="map__point map__point-n8"></div>
-            <div class="map__point map__point-n9"></div>
+            <div class="map__point map__point-n1" data-point="north"></div>
+            <div class="map__point map__point-n2" data-point="north"></div>
+            <div class="map__point map__point-n3" data-point="north"></div>
+            <div class="map__point map__point-n4" data-point="north"></div>
+            <div class="map__point map__point-n5" data-point="north"></div>
+            <div class="map__point map__point-n6" data-point="north"></div>
+            <div class="map__point map__point-n7" data-point="north"></div>
+            <div class="map__point map__point-n8" data-point="north"></div>
+            <div class="map__point map__point-n9" data-point="north"></div>
 
             <!-- East -->
-            <div class="map__point map__point-e1"></div>
-            <div class="map__point map__point-e2"></div>
-            <div class="map__point map__point-e3"></div>
-            <div class="map__point map__point-e4"></div>
-            <div class="map__point map__point-e5"></div>
-            <div class="map__point map__point-e6"></div>
-            <div class="map__point map__point-e7"></div>
-            <div class="map__point map__point-e8"></div>
-            <div class="map__point map__point-e9"></div>
+            <div class="map__point map__point-e1" data-point="east"></div>
+            <div class="map__point map__point-e2" data-point="east"></div>
+            <div class="map__point map__point-e3" data-point="east"></div>
+            <div class="map__point map__point-e4" data-point="east"></div>
+            <div class="map__point map__point-e5" data-point="east"></div>
+            <div class="map__point map__point-e6" data-point="east"></div>
+            <div class="map__point map__point-e7" data-point="east"></div>
+            <div class="map__point map__point-e8" data-point="east"></div>
+            <div class="map__point map__point-e9" data-point="east"></div>
 
             <!-- South -->
-            <div class="map__point map__point-s1"></div>
-            <div class="map__point map__point-s2"></div>
-            <div class="map__point map__point-s3"></div>
-            <div class="map__point map__point-s4"></div>
-            <div class="map__point map__point-s5"></div>
-            <div class="map__point map__point-s6"></div>
-            <div class="map__point map__point-s7"></div>
-            <div class="map__point map__point-s8"></div>
-            <div class="map__point map__point-s9"></div>
+            <div class="map__point map__point-s1" data-point="south"></div>
+            <div class="map__point map__point-s2" data-point="south"></div>
+            <div class="map__point map__point-s3" data-point="south"></div>
+            <div class="map__point map__point-s4" data-point="south"></div>
+            <div class="map__point map__point-s5" data-point="south"></div>
+            <div class="map__point map__point-s6" data-point="south"></div>
+            <div class="map__point map__point-s7" data-point="south"></div>
+            <div class="map__point map__point-s8" data-point="south"></div>
+            <div class="map__point map__point-s9" data-point="south"></div>
 
             <!-- West -->
-            <div class="map__point map__point-w1"></div>
-            <div class="map__point map__point-w2"></div>
-            <div class="map__point map__point-w3"></div>
-            <div class="map__point map__point-w4"></div>
-            <div class="map__point map__point-w5"></div>
-            <div class="map__point map__point-w6"></div>
-            <div class="map__point map__point-w7"></div>
-            <div class="map__point map__point-w8"></div>
-            <div class="map__point map__point-w9"></div>
-            <div class="map__point map__point-w10"></div>
+            <div class="map__point map__point-w1" data-point="west"></div>
+            <div class="map__point map__point-w2" data-point="west"></div>
+            <div class="map__point map__point-w3" data-point="west"></div>
+            <div class="map__point map__point-w4" data-point="west"></div>
+            <div class="map__point map__point-w5" data-point="west"></div>
+            <div class="map__point map__point-w6" data-point="west"></div>
+            <div class="map__point map__point-w7" data-point="west"></div>
+            <div class="map__point map__point-w8" data-point="west"></div>
+            <div class="map__point map__point-w9" data-point="west"></div>
+            <div class="map__point map__point-w10" data-point="west"></div>
 
             <!-- Center -->
-            <div class="map__point map__point-c1"></div>
-            <div class="map__point map__point-c2"></div>
-            <div class="map__point map__point-c3"></div>
-            <div class="map__point map__point-c4"></div>
-            <div class="map__point map__point-c5"></div>
-            <div class="map__point map__point-c6"></div>
-            <div class="map__point map__point-c7"></div>
-            <div class="map__point map__point-c8"></div>
-            <div class="map__point map__point-c9"></div>
-            <div class="map__point map__point-c10"></div>
-            <div class="map__point map__point-c11"></div>
-            <div class="map__point map__point-c12"></div>
-            <div class="map__point map__point-c13"></div>
-            <div class="map__point map__point-c14"></div>
+            <div class="map__point map__point-c1" data-point="center"></div>
+            <div class="map__point map__point-c2" data-point="center"></div>
+            <div class="map__point map__point-c3" data-point="center"></div>
+            <div class="map__point map__point-c4" data-point="center"></div>
+            <div class="map__point map__point-c5" data-point="center"></div>
+            <div class="map__point map__point-c6" data-point="center"></div>
+            <div class="map__point map__point-c7" data-point="center"></div>
+            <div class="map__point map__point-c8" data-point="center"></div>
+            <div class="map__point map__point-c9" data-point="center"></div>
+            <div class="map__point map__point-c10" data-point="center"></div>
+            <div class="map__point map__point-c11" data-point="center"></div>
+            <div class="map__point map__point-c12" data-point="center"></div>
+            <div class="map__point map__point-c13" data-point="center"></div>
+            <div class="map__point map__point-c14" data-point="center"></div>
           </div>
         </div>
 
@@ -128,6 +133,14 @@
         </button>
       </div>
     </main>
+
+    <div class="limbo">
+      <img src="images/board.png" alt="" />
+      <img src="images/inactive-north.png" alt="" />
+      <img src="images/inactive-east.png" alt="" />
+      <img src="images/inactive-south.png" alt="" />
+      <img src="images/inactive-west.png" alt="" />
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

@@ -38,7 +38,7 @@ h6 {
   width: 100%;
   height: 100%;
   padding: em(46) em(32);
-  background: radial-gradient(circle at 50% 50%, #eef2f3, #8e9eab);
+  background: radial-gradient(circle at 50% 50%, #9bbacf, darken(#85a8be, 14%) 90%);
 
   &[data-state='home'] {
     .view--home {
@@ -79,16 +79,25 @@ h6 {
     }
   }
 
+  &__logo {
+    width: em(888 * 0.35);
+    height: em(156 * 0.35);
+    font-size: 1em;
+    text-indent: -99999px;
+    margin: 0 0 em(12);
+    background: url('../images/logo.png') 50% 50% / contain no-repeat;
+  }
+
   &__title {
-    font: 400 em(36) / 1 $font-title;
+    font: 400 em(32) / 1 $font-title;
     width: 100%;
     text-align: center;
-    color: #333;
+    color: #333333;
     text-transform: uppercase;
-    margin: 0 0 em(24, 36);
-    border-bottom: em(2, 36) solid #333;
-    padding: 0 0 em(8, 36);
-    max-width: em(420, 36);
+    margin: 0 0 em(24, 32);
+    border-bottom: em(1, 32) solid #333333;
+    padding: 0 0 em(8, 32);
+    max-width: em(420, 32);
   }
 
   &__options {
@@ -113,17 +122,381 @@ h6 {
 
   p {
     font: 500 em(16) / 1 $font-copy;
-    color: #121212;
+    color: #333333;
     text-align: center;
     margin: 0 0 em(20, 16);
   }
 
   .map {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
     width: 79.5vw * 1.1;
     height: 55.3vw * 1.1;
-    background: url('../images/board.png') 50% 50% / contain no-repeat;
+
     margin: em(20) 0 em(40);
+
+    @media screen and (min-width: em(768)) {
+      width: 79.5vw * 0.65;
+      height: 55.3vw * 0.65;
+    }
+
+    &__background {
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+      background: url('../images/board.png') 50% 50% / contain no-repeat;
+      position: absolute;
+      z-index: 1;
+    }
+
+    &__sectors {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+    }
+
+    &__sector {
+      display: none;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      position: absolute;
+      z-index: 1;
+
+      &.is-active {
+        display: block;
+      }
+
+      &--north {
+        width: 71.7%;
+        height: 35.5%;
+        background-image: url('../images/inactive-north.png');
+        left: 21%;
+        top: 0%;
+      }
+
+      &--east {
+        width: 28.9%;
+        height: 79.1%;
+        background-image: url('../images/inactive-east.png');
+        right: 0.1%;
+        top: 6.7%;
+      }
+
+      &--south {
+        width: 85.2%;
+        height: 29.4%;
+        background-image: url('../images/inactive-south.png');
+        left: 7.4%;
+        bottom: 0.8%;
+      }
+
+      &--west {
+        width: 31.2%;
+        height: 95.3%;
+        background-image: url('../images/inactive-west.png');
+        left: 0.3%;
+        top: 1.2%;
+      }
+    }
+
+    &__points {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 3;
+    }
+
+    &__point {
+      width: 5.5vw;
+      height: 5.5vw;
+      position: absolute;
+      z-index: 1;
+      background-position: 50% 50%;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      &[data-chit='trendy'] {
+        background-image: url('../images/chit-trendy.png');
+      }
+
+      &[data-chit='metro'] {
+        background-image: url('../images/chit-metro.png');
+      }
+
+      &[data-chit='ruins'] {
+        background-image: url('../images/chit-ruins.png');
+      }
+
+      @media screen and (min-width: em(768)) {
+        width: 5.5vw * 0.65;
+        height: 5.5vw * 0.65;
+      }
+
+      // North
+      &-n1 {
+        left: 27.6%;
+        top: 2.3%;
+      }
+
+      &-n2 {
+        left: 41.5%;
+        top: 0.5%;
+      }
+
+      &-n3 {
+        left: 55.9%;
+        top: 3.3%;
+      }
+
+      &-n4 {
+        left: 75.1%;
+        top: 3%;
+      }
+
+      &-n5 {
+        left: 66.1%;
+        top: 14%;
+      }
+
+      &-n6 {
+        left: 59.4%;
+        top: 22.8%;
+      }
+
+      &-n7 {
+        left: 49.4%;
+        top: 13.6%;
+      }
+
+      &-n8 {
+        left: 40.6%;
+        top: 10.8%;
+      }
+
+      &-n9 {
+        left: 28.2%;
+        top: 15.3%;
+      }
+
+      // East
+      &-e1 {
+        left: 87.8%;
+        top: 10.7%;
+      }
+
+      &-e2 {
+        left: 91.3%;
+        top: 23.3%;
+      }
+
+      &-e3 {
+        left: 90.9%;
+        top: 39.5%;
+      }
+
+      &-e4 {
+        left: 86.1%;
+        top: 54.4%;
+      }
+
+      &-e5 {
+        left: 89.1%;
+        top: 70.4%;
+      }
+
+      &-e6 {
+        left: 77.1%;
+        top: 68.4%;
+      }
+
+      &-e7 {
+        left: 80%;
+        top: 41%;
+      }
+
+      &-e8 {
+        left: 80.7%;
+        top: 26%;
+      }
+
+      &-e9 {
+        left: 76.2%;
+        top: 19.2%;
+      }
+
+      // South
+      &-s1 {
+        left: 26.8%;
+        top: 75.7%;
+      }
+
+      &-s2 {
+        left: 40.3%;
+        top: 77.6%;
+      }
+
+      &-s3 {
+        left: 52.1%;
+        top: 74.2%;
+      }
+
+      &-s4 {
+        left: 62%;
+        top: 73%;
+      }
+
+      &-s5 {
+        left: 57.3%;
+        top: 84%;
+      }
+
+      &-s6 {
+        left: 72.7%;
+        top: 87%;
+      }
+
+      &-s7 {
+        left: 83.8%;
+        top: 87.6%;
+      }
+
+      &-s8 {
+        left: 33.6%;
+        top: 88.2%;
+      }
+
+      &-s9 {
+        left: 15.1%;
+        top: 88.4%;
+      }
+
+      // West
+      &-w1 {
+        left: 12.5%;
+        top: 6.2%;
+      }
+
+      &-w2 {
+        left: 14.5%;
+        top: 24.4%;
+      }
+
+      &-w3 {
+        left: 15.5%;
+        top: 42.2%;
+      }
+
+      &-w4 {
+        left: 20.5%;
+        top: 58.2%;
+      }
+
+      &-w5 {
+        left: 12.5%;
+        top: 70.2%;
+      }
+
+      &-w6 {
+        left: 3.5%;
+        top: 77.2%;
+      }
+
+      &-w7 {
+        left: 1.2%;
+        top: 61%;
+      }
+
+      &-w8 {
+        left: 8.6%;
+        top: 55.9%;
+      }
+
+      &-w9 {
+        left: 3.3%;
+        top: 38.9%;
+      }
+
+      &-w10 {
+        left: 4.5%;
+        top: 19.2%;
+      }
+
+      // Center
+      &-c1 {
+        left: 38.4%;
+        top: 22.9%;
+      }
+
+      &-c2 {
+        left: 44.9%;
+        top: 32.3%;
+      }
+
+      &-c3 {
+        left: 56.2%;
+        top: 35.7%;
+      }
+
+      &-c4 {
+        left: 68.2%;
+        top: 29.5%;
+      }
+
+      &-c5 {
+        left: 66.8%;
+        top: 37.9%;
+      }
+
+      &-c6 {
+        left: 58.7%;
+        top: 49.9%;
+      }
+
+      &-c7 {
+        left: 62.7%;
+        top: 60.6%;
+      }
+
+      &-c8 {
+        left: 50.2%;
+        top: 61.6%;
+      }
+
+      &-c9 {
+        left: 38.9%;
+        top: 65%;
+      }
+
+      &-c10 {
+        left: 33.1%;
+        top: 52.1%;
+      }
+
+      &-c11 {
+        left: 42.3%;
+        top: 48.1%;
+      }
+
+      &-c12 {
+        left: 51.3%;
+        top: 43.9%;
+      }
+
+      &-c13 {
+        left: 26.9%;
+        top: 38.1%;
+      }
+
+      &-c14 {
+        left: 32.1%;
+        top: 32.9%;
+      }
+    }
   }
 }
 
@@ -136,12 +509,16 @@ h6 {
   &--action,
   &--players {
     font: 700 em(18) / 1 $font-copy;
-    color: #333;
+    color: #333333;
     background: #e0ca83;
     text-transform: uppercase;
-    box-shadow: em(2, 18) em(2, 18) em(2, 18) rgba(#121212, 1),
+    box-shadow: em(2, 18) em(2, 18) em(2, 18) rgba(#333333, 1),
       inset em(1, 18) em(1, 18) em(1, 18) #f1dbaa;
     padding: em(14, 18) em(32, 18);
     border-radius: 1.5em;
   }
+}
+
+.limbo {
+  display: none;
 }

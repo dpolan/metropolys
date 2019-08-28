@@ -1,32 +1,158 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="">
   <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Metropolys Randomizer</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Metropolys Game randomizer</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Glass+Antiqua&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Glass+Antiqua|Montserrat:500,700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css" />
     <!-- endbuild -->
   </head>
   <body>
-    <main class="app">
+    <main id="app" class="app" data-state="home">
+      <div id="view-home" class="view view--home">
+        <h1 class="view__title">Metropolys<br />Setup randomizer</h1>
 
+        <button class="button button--action" data-action="start">
+          Start
+        </button>
+      </div>
+
+      <div id="view-config" class="view view--config">
+        <h2 class="view__title">
+          Players
+        </h2>
+
+        <p>
+          How many players on the table?
+        </p>
+
+        <nav class="view__options">
+          <button class="button button--players" data-players="2">👤👤</button>
+          <button class="button button--players" data-players="3">👤👤👤</button>
+          <button class="button button--players" data-players="4">👤👤👤👤</button>
+        </nav>
+      </div>
+
+      <div id="view-simulator" class="view view--simulator">
+        <h2 class="view__title">
+          Result
+        </h2>
+
+        <div class="map">
+          <div class="map__sectors">
+            <div class="map__sector map__sector--north"></div>
+            <div class="map__sector map__sector--east"></div>
+            <div class="map__sector map__sector--south"></div>
+            <div class="map__sector map__sector--west"></div>
+          </div>
+
+          <div class="map__points">
+            <!-- North -->
+            <div class="map__point map__point-n1"></div>
+            <div class="map__point map__point-n2"></div>
+            <div class="map__point map__point-n3"></div>
+            <div class="map__point map__point-n4"></div>
+            <div class="map__point map__point-n5"></div>
+            <div class="map__point map__point-n6"></div>
+            <div class="map__point map__point-n7"></div>
+            <div class="map__point map__point-n8"></div>
+            <div class="map__point map__point-n9"></div>
+
+            <!-- East -->
+            <div class="map__point map__point-e1"></div>
+            <div class="map__point map__point-e2"></div>
+            <div class="map__point map__point-e3"></div>
+            <div class="map__point map__point-e4"></div>
+            <div class="map__point map__point-e5"></div>
+            <div class="map__point map__point-e6"></div>
+            <div class="map__point map__point-e7"></div>
+            <div class="map__point map__point-e8"></div>
+            <div class="map__point map__point-e9"></div>
+
+            <!-- South -->
+            <div class="map__point map__point-s1"></div>
+            <div class="map__point map__point-s2"></div>
+            <div class="map__point map__point-s3"></div>
+            <div class="map__point map__point-s4"></div>
+            <div class="map__point map__point-s5"></div>
+            <div class="map__point map__point-s6"></div>
+            <div class="map__point map__point-s7"></div>
+            <div class="map__point map__point-s8"></div>
+            <div class="map__point map__point-s9"></div>
+
+            <!-- West -->
+            <div class="map__point map__point-w1"></div>
+            <div class="map__point map__point-w2"></div>
+            <div class="map__point map__point-w3"></div>
+            <div class="map__point map__point-w4"></div>
+            <div class="map__point map__point-w5"></div>
+            <div class="map__point map__point-w6"></div>
+            <div class="map__point map__point-w7"></div>
+            <div class="map__point map__point-w8"></div>
+            <div class="map__point map__point-w9"></div>
+            <div class="map__point map__point-w10"></div>
+
+            <!-- Center -->
+            <div class="map__point map__point-c1"></div>
+            <div class="map__point map__point-c2"></div>
+            <div class="map__point map__point-c3"></div>
+            <div class="map__point map__point-c4"></div>
+            <div class="map__point map__point-c5"></div>
+            <div class="map__point map__point-c6"></div>
+            <div class="map__point map__point-c7"></div>
+            <div class="map__point map__point-c8"></div>
+            <div class="map__point map__point-c9"></div>
+            <div class="map__point map__point-c10"></div>
+            <div class="map__point map__point-c11"></div>
+            <div class="map__point map__point-c12"></div>
+            <div class="map__point map__point-c13"></div>
+            <div class="map__point map__point-c14"></div>
+          </div>
+        </div>
+
+        <button class="button button--action" data-action="restart">
+          Restart
+        </button>
+      </div>
     </main>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
+      (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] ||
+          (b[l] = function() {
+            (b[l].q = b[l].q || []).push(arguments);
+          });
+        b[l].l = +new Date();
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r);
+      })(window, document, 'script', 'ga');
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
     </script>
 
     <!-- build:js scripts/main.js -->
     <script src="scripts/App.js"></script>
     <!-- endbuild -->
+
+    <script>
+      window.OB.App.init();
+    </script>
   </body>
 </html>

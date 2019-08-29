@@ -52,6 +52,7 @@ window.OB.App = (() => {
   };
 
   let deferredInstallPrompt = null;
+  let firstGeneration = false;
 
   /**
    * Gets the new application state, applyng the given action to the current one
@@ -167,6 +168,11 @@ window.OB.App = (() => {
           element.removeEventListener('click', onClickPlayerCount);
           element.addEventListener('click', onClickPlayerCount);
         });
+
+        // Check PWA installation
+        if (deferredInstallPrompt !== null && firstGeneration) {
+          deferredInstallPrompt.prompt();
+        }
       },
       simulator: () => {
         clearSimulator();
@@ -225,10 +231,7 @@ window.OB.App = (() => {
           point.dataset.chit = result[j];
         }
 
-        // Check PWA installation
-        if (deferredInstallPrompt !== null) {
-          deferredInstallPrompt.prompt();
-        }
+        firstGeneration = true;
       },
     };
 

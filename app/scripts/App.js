@@ -51,6 +51,8 @@ window.OB.App = (() => {
     },
   };
 
+  let deferredInstallPrompt = null;
+
   /**
    * Gets the new application state, applyng the given action to the current one
    * @return {string} State name
@@ -222,6 +224,11 @@ window.OB.App = (() => {
 
           point.dataset.chit = result[j];
         }
+
+        // Check PWA installation
+        if (deferredInstallPrompt !== null) {
+          deferredInstallPrompt.prompt();
+        }
       },
     };
 
@@ -248,11 +255,21 @@ window.OB.App = (() => {
   };
 
   /**
+   * Handles PWA install prompt activation event
+   * @param {object} evt 'beforeinstallprompt' event
+   */
+  const saveBeforeInstallPromptEvent = (evt) => {
+    deferredInstallPrompt = evt;
+  };
+
+  /**
    * Initializes the application
    */
   const init = () => {
     configActions();
     configState();
+
+    window.addEventListener('beforeinstallprompt', saveBeforeInstallPromptEvent);
   };
 
   return {
